@@ -37,7 +37,7 @@ class User {
     bcrypt.genSalt(12, (err, salt) => {
       if (err) return cb(err);
       this.salt = salt;
-      bcrypt.hash(this.hashPassword, salt, (err, hash) => {
+      bcrypt.hash(this.pass, salt, (err, hash) => {
         if (err) return cb(err);
         this.pass = hash;
         cb();
@@ -77,10 +77,3 @@ class User {
 }
 
 module.exports = User;
-
-// const User = require('./models/user');
-// const user = new User({ name: 'Example', pass: 'test' });
-// user.save(err => {
-//   if (err) console.error(err);
-//   console.log('user id %id', user.id);
-// });
