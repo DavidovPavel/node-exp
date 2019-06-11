@@ -9,6 +9,17 @@ class User {
     }
   }
 
+  toJSON() {
+    const {
+      id,
+      name
+    } = this;
+    return {
+      id,
+      name
+    };
+  }
+
   save(cb) {
     if (this.id) this.update(cb);
     else {
